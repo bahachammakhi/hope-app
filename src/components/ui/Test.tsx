@@ -4,10 +4,11 @@ import { Form, Icon, Input, Button } from "antd";
 import useForm from "../../hooks/useForm";
 import useApi from "../../hooks/useApi";
 import { getStartwar as startwars } from "../../requests";
+import logo from "../../assets/logo.png";
 // Redux actions
 import startupActions from "../../redux/startup";
 
-const Test = ({ logo }: any) => {
+const Test = ({}: any) => {
   //Dispatch functions !
   const dispatch = useDispatch();
   // Api hook !
