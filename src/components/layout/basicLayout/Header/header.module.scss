@@ -1,7 +1,15 @@
 .logo {
   width: 120px;
-  height: 31px;
-  background: rgba(255, 255, 255, 0.2);
-  margin: 16px 24px 16px 0;
+  height: 50px;
+  // background: rgba(255, 255, 255, 0.2);
+  // margin: 16px 24px 16px 0;
   float: left;
+}
+.logoimg {
+  width: 10vw;
+  height: 30px;
+}
+.navbar {
+  background: white !important;
+  box-shadow: 0px 9px 7px 0px rgba(219, 216, 219, 1);
 }
