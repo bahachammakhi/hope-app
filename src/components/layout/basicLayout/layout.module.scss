@@ -6,5 +6,11 @@
   background-color: white !important;
 }
 .footerWrapper {
-  background-color: white !important;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  // background-color: white !important;
+}
+.formElement {
+  padding-bottom: 5%;
 }
