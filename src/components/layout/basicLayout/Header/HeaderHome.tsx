@@ -15,15 +15,21 @@ const HeaderHome = () => {
     );
   });
   return (
-    <Header className={classes.navbar}>
+    <>
       <div className={classes.logo}>
         {/* <img src={logo} className={classes.logoimg} alt="logo" /> */}
         <h1 className={classes.logotitle}>Hope-APP</h1>
       </div>
-      <Menu className={classes.menu} theme="light" mode="horizontal" defaultSelectedKeys={['0']} style={{ lineHeight: '64px' }}>
+      <Menu
+        className={classes.menu}
+        theme="light"
+        mode="horizontal"
+        defaultSelectedKeys={['0']}
+        style={{ lineHeight: '64px' }}
+      >
         {menusItems}
       </Menu>
-    </Header>
+    </>
   );
 };
 

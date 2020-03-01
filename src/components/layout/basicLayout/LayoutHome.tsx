@@ -14,8 +14,11 @@ interface Props extends RouteProps {
 const LayoutHome = ({ sidebar, ...props }: Props) => {
   return (
     <Layout className={classes.layout}>
-      <HeaderHome />
-      <Content className={classes.wrapper}>
+      <Header className={classes.navbar}>
+        <HeaderHome />
+      </Header>
+
+      <Content className={classes.wrapperContent}>
         <Route {...props} />
       </Content>
       <Footer className={classes.footerWrapper}>
