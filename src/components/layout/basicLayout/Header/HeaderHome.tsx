@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { Layout, Menu, Breadcrumb } from 'antd';
+import { Layout, Menu, eBreadcrumb } from 'antd';
 import classes from './header.module.scss';
 const { Header, Content, Footer } = Layout;
 

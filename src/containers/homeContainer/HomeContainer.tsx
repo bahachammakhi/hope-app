@@ -1,15 +1,11 @@
 import React from 'react';
+import { Layout, Menu, eBreadcrumb } from 'antd';
+import Servs from '../../components/ui/services';
 import classes from './homeContainer.module.scss';
-
-import { Layout, Menu, Breadcrumb } from 'antd';
 const { Header, Content, Footer } = Layout;
 
 const HomeContainer = () => {
-  return (
-    <>
-      <h1>Test</h1>
-    </>
-  );
+  return <Servs />;
 };
 
 export default HomeContainer;
