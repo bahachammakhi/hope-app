@@ -33,9 +33,9 @@ const RightSide = () => (
 
 const LeftSide = () => {
   const initialValues = {
-    name: 'test',
-    email: 'test',
-    message: 'test',
+    name: '',
+    email: '',
+    message: '',
   };
   const { handleChange, handleSubmit, handleBlur, setForm, form, errors, success, submitting } = useForm({
     initialValues,

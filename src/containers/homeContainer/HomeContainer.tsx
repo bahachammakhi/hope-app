@@ -1,7 +1,7 @@
 import React from 'react';
 import classes from './homeContainer.module.scss';
 
-import { Layout, Menu, Breadcrumb } from 'antd';
+import { Layout, Menu, Breadcrumb, Card } from 'antd';
 import Conter from '../../components/counter/Counter';
 import NumberSection from '../../components/numbersSection/NumberSection';
 const { Header, Content, Footer } = Layout;

@@ -27,7 +27,7 @@ const useForm = ({ handleSubmitCallback, validateCallback, initialValues }: any)
     setForm((state: any) => {
       //here we use the spread operator to return the object. This puts the properties of
       //state into a new object and then adds on the newly created value.
-      //since properties on the right side of a spread operation always "win", the new value will be returned with the new objecgt.
+      //since properties on the right side  of a spread operation always "win", the new value will be returned with the new objecgt.
       return { ...state, [name]: value };
     });
   };
