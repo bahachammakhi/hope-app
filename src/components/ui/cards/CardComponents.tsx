@@ -1,23 +1,20 @@
 import React from 'react';
-import classes from 'card.module.scss';
+import classes from './card.module.scss';
 import { Card, Icon, Avatar, Switch, Skeleton } from 'antd';
+import donation from '../../assets/help.png';
 const { Meta } = Card;
-const CardComponents = () => {
+
+const CardComponents = ({ img, title, parag }: any) => {
   return (
     <>
-      <Card
-        style={{ width: 300 }}
-        cover={<img alt="example" src="https://gw.alipayobjects.com/zos/rmsportal/JiqGstEfoWAOHiTxclqi.png" />}
-        actions={[<Icon type="setting" key="setting" />, <Icon type="edit" key="edit" />, <Icon type="ellipsis" key="ellipsis" />]}
-      >
-        <Meta
-          avatar={<Avatar src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png" />}
-          title="Card title"
-          description="This is the description"
-        />
+      <Card hoverable className={classes.card}>
+        <div>
+          <img className={classes.logo} src={img}></img>
+        </div>
+        <h2 className={classes.titre}>{title}</h2>
+        <p className={classes.par}>{parag}</p>
       </Card>
     </>
   );
 };
-
 export default CardComponents;

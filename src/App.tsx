@@ -1,12 +1,12 @@
-import React, { Suspense, useEffect } from "react";
-import logo from "./logo.svg";
-import { Provider } from "react-redux";
-import { BrowserRouter, Route } from "react-router-dom";
-import { PersistGate } from "redux-persist/integration/react";
-import { store, persistor } from "./store";
-import "./App.css";
+import React, { Suspense, useEffect } from 'react';
+import logo from './logo.svg';
+import { Provider } from 'react-redux';
+import { BrowserRouter, Route } from 'react-router-dom';
+import { PersistGate } from 'redux-persist/integration/react';
+import { store, persistor } from './store';
+import './App.css';
 //Imports:
-import RootContainer from "./containers/RootContainer";
+import RootContainer from './containers/RootContainer';
 
 // const Test = React.lazy(() =>
 //   import(/* webpackChunkName: "App" */ "./components/ui/Test")

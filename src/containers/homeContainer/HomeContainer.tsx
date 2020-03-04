@@ -8,9 +8,13 @@ import StoneCard from '../../components/ui/mileStoneCard/StoneCard';
 import StoneGrid from '../../components/ui/stonegrid/StoneGrid';
 import loginActions from '../../redux/login/login';
 import loginActionsRequest from '../../redux/login/loginRequest';
+import CardComponents from '../../components/ui/cards/CardComponents';
 import useForm from '../../hooks/useForm';
+import image1 from '../../assets/rb.jpg';
+import image2 from '../../assets/aa.png';
+import image3 from '../../assets/help.png';
+import img1 from '../../res/hope.jpg';
 const { Header, Content, Footer } = Layout;
-
 const HomeContainer = () => {
   const redux = useSelector((state: any) => state);
   const dispatch = useDispatch();
@@ -26,6 +30,11 @@ const HomeContainer = () => {
     <>
       <NumberSection />
       <StoneGrid />
+      <CardComponents
+        title="Become a volunteer"
+        parag="Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s"
+        img={image1}
+      />
       <Modal title="Login modal" visible={redux.login.modalOpened} onOk={ModalHandler} onCancel={ModalHandler}>
         <Input onChange={handleChange} name="email" placeholder="default size" />
         <Input.Password name="password" onChange={handleChange} placeholder="input password" />
