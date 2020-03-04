@@ -11,7 +11,7 @@ const CardComponents = ({ img, title, parag }: any) => {
         <div>
           <img className={classes.logo} src={img}></img>
         </div>
-        <h2 className={classes.vol}>{title}</h2>
+        <h2 className={classes.titre}>{title}</h2>
         <p className={classes.par}>{parag}</p>
       </Card>
     </>

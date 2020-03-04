@@ -20,16 +20,16 @@ const HomeContainer = () => {
         parag="Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s"
         img={image1}
       />
-      <CardComponents
+      {/* <CardComponents
         title="Become a gamer"
         parag="Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s"
         img={image2}
-      />
-      <CardComponents
+      /> */}
+      {/* <CardComponents
         title="Na3am?"
         parag="Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s"
         img={image3}
-      />
+      /> */}
     </>
   );
 };
