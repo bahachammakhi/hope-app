@@ -6,11 +6,9 @@ import LayoutHome from '../components/layout/basicLayout/LayoutHome';
 
 const RootContainer = () => {
   return (
-    <div>
-      <Switch>
-        <LayoutHome path="/" exact component={HomeContainer} />
-      </Switch>
-    </div>
+    <Switch>
+      <LayoutHome path="/" exact component={HomeContainer} />
+    </Switch>
   );
 };
 
