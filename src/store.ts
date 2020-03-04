@@ -9,28 +9,28 @@ import { createLogger } from 'redux-logger';
 
 // declaring redux dev tools to be a known type
 declare global {
-    interface Window {
-      __REDUX_DEVTOOLS_EXTENSION_COMPOSE__?: typeof compose;
-    }
+  interface Window {
+    __REDUX_DEVTOOLS_EXTENSION_COMPOSE__?: typeof compose;
   }
+}
 // create saga middleWare
 const sagaMiddleware = createSagaMiddleware();
 // Create Logger middlewear
 const logger = createLogger({
-	collapsed: true,
-	duration: true,
-	diff: true
+  collapsed: true,
+  duration: true,
+  diff: true,
 });
 //Persisit config
 const persistConfig = {
-	key: 'root',
-	storage,
-	transforms: [ ImmutablePersistenceTransform ],
-	blacklist: [],
-	whiteList: []
+  key: 'root',
+  storage,
+  transforms: [ImmutablePersistenceTransform],
+  blacklist: ['login'],
+  whiteList: [],
 };
 // Middle weares
-const middlewares = [ sagaMiddleware, logger ];
+const middlewares = [sagaMiddleware, logger];
 // Enable redux dev tools
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 

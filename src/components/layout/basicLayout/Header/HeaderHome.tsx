@@ -1,15 +1,23 @@
 import React, { useState } from 'react';
-
+import { useSelector, useDispatch } from 'react-redux';
 import { Layout, Menu, Breadcrumb } from 'antd';
 import classes from './header.module.scss';
 import logo from '../../../../assets/logo.png';
+import loginActions from '../../../../redux/login/login';
 const { Header, Content, Footer } = Layout;
-const menus = ['home', 'about', 'sevices', 'causes', 'contact'];
+const menus = ['home', 'about', 'sevices', 'login', 'logout'];
 
 const HeaderHome = () => {
+  const dispatch = useDispatch();
   const menusItems = menus.map((element, index) => {
     return (
-      <Menu.Item className={classes.navmenuitem} key={index}>
+      <Menu.Item
+        onClick={() => {
+          if (element === 'login') dispatch(loginActions.modalHandler());
+        }}
+        className={classes.navmenuitem}
+        key={index}
+      >
         {element}
       </Menu.Item>
     );

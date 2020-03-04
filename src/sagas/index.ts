@@ -1,10 +1,10 @@
 import { fork, all } from 'redux-saga/effects';
 
 import startup from './startup';
+import login from './login';
 
+const sagas = [startup, login];
 
-const sagas = [startup];
-
-export default function* () {
+export default function*() {
   yield all(sagas.map(saga => fork(saga)));
 }
