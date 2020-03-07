@@ -5,11 +5,13 @@ import classes from './header.module.scss';
 import logo from '../../../../assets/logo.png';
 import loginActions from '../../../../redux/login/login';
 const { Header, Content, Footer } = Layout;
-const menus = ['home', 'about', 'sevices', 'login', 'logout'];
 
-const HeaderHome = () => {
+interface Props {
+  menu: string[];
+}
+const HeaderHome = ({ menu }: Props) => {
   const dispatch = useDispatch();
-  const menusItems = menus.map((element, index) => {
+  const menusItems = menu.map((element, index) => {
     return (
       <Menu.Item
         onClick={() => {
