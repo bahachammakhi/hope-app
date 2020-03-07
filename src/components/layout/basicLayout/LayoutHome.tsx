@@ -6,7 +6,7 @@ import { Layout, Menu, Breadcrumb } from 'antd';
 import HeaderHome from './Header/HeaderHome';
 import FooterHome from './Footer/FooterHome';
 const { Header, Content, Footer } = Layout;
-
+const menus = ['home', 'about', 'sevices', 'Signup', 'Login'];
 interface Props extends RouteProps {
   sidebar?: boolean;
 }
@@ -15,7 +15,7 @@ const LayoutHome = ({ sidebar, ...props }: Props) => {
   return (
     <Layout className={classes.layout}>
       <Header className={classes.navbar}>
-        <HeaderHome />
+        <HeaderHome menu={menus} />
       </Header>
 
       <Content className={classes.wrapperContent}>

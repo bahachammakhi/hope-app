@@ -46,11 +46,7 @@ const StoneGrid = ({ data }: Props) => {
       </Col>
     );
   });
-  return (
-    <>
-      <Row>{StoneElemnts}</Row>
-    </>
-  );
+  return <Row>{StoneElemnts}</Row>;
 };
 
 export default StoneGrid;
