@@ -1,4 +1,11 @@
----
+name: CI
+true:
+  pull_request:
+    branches:
+      - master
+  push:
+    branches:
+      - master
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -26,11 +33,3 @@ jobs:
         run: |
           echo installing packages,
           echo wait,,,.
-name: CI
-true:
-  pull_request:
-    branches:
-      - master
-  push:
-    branches:
-      - master
