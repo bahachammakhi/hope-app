@@ -20,7 +20,7 @@ const Conter = ({ data }: Props) => {
       <TrackVisibility once className={classes.element}>
         {({ isVisible }) =>
           isVisible && (
-            <Col span={3} offset={3}>
+            <Col span={3} offset={2}>
               <h1 className={classes.number}>
                 <CountUp end={el.number} duration={10} delay={0.2} />
               </h1>
