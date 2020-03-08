@@ -30,7 +30,7 @@ jobs:
     - name: Run a multi-line script
       run: |
             echo installing packages,
-            npm install yarn,
+            npm i yarn,
             yarn,
             echo running tests,
             yarn test,
