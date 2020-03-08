@@ -21,7 +21,15 @@ jobs:
     steps:
     # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
     - uses: actions/checkout@v2
-
+    - uses: borales/actions-yarn@v2.0.0
+      with:
+          cmd: install # will run `yarn install` command
+    - uses: borales/actions-yarn@v2.0.0
+      with:
+          cmd: build # will run `yarn build` command
+    - uses: borales/actions-yarn@v2.0.0
+      with:
+          cmd: test # will run `yarn test` command:  
     # Runs a single command using the runners shell
     - name: Run a one-line script
       run: echo Hello, world!
@@ -30,9 +38,4 @@ jobs:
     - name: Run a multi-line script
       run: |
             echo installing packages,
-            npm i yarn,
-            yarn,
-            echo running tests,
-            yarn test,
-            echo running build,
-            yarn build.
+            echo done.
