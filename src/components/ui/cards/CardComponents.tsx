@@ -1,8 +1,6 @@
 import React from 'react';
 import classes from './card.module.scss';
-import { Card, Icon, Avatar, Switch, Skeleton } from 'antd';
-import donation from '../../assets/help.png';
-const { Meta } = Card;
+import { Card } from 'antd';
 
 const CardComponents = ({ img, title, parag }: any) => {
   return (
