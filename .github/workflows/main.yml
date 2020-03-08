@@ -26,10 +26,10 @@ jobs:
           cmd: install # will run `yarn install` command
     - uses: borales/actions-yarn@v2.0.0
       with:
-          cmd: build # will run `yarn build` command
+          cmd: test # will run `yarn test` command
     - uses: borales/actions-yarn@v2.0.0
       with:
-          cmd: test # will run `yarn test` command:  
+          cmd: build # will run `yarn build` command:  
     # Runs a single command using the runners shell
     - name: Run a one-line script
       run: echo Hello, world!
