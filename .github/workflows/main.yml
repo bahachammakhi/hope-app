@@ -13,7 +13,7 @@ on:
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
   # This workflow contains a single job called "build"
-  install:
+  build:
     # The type of runner that the job will run on
     runs-on: ubuntu-latest
 
@@ -25,6 +25,9 @@ jobs:
         with:
           cmd: install # will run `yarn install` command
       # Runs a single command using the runners shell
+      - uses: borales/actions-yarn@v2.0.0
+        with:
+          cmd: build # will run `yarn build` command:
       - name: Run a one-line script
         run: echo Hello, world!
 
@@ -33,11 +36,3 @@ jobs:
         run: |
           echo installing packages,
           echo done.
-  build:
-    runs-on: ubuntu-latest
-
-    steps:
-      - uses: actions/checkout@v2
-      - uses: borales/actions-yarn@v2.0.0
-        with:
-          cmd: build # will run `yarn build` command:
