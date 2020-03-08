@@ -16,6 +16,7 @@ import image3 from '../../assets/help.png';
 import img1 from '../../res/hope.jpg';
 import DonationBackground from '../../components/ui/donationBackground/DonationBackground';
 import Services from '../../components/ui/services/Services';
+import Sponsors from '../../components/ui/sponsor/Sponsors';
 const { Header, Content, Footer } = Layout;
 const HomeContainer = () => {
   const redux = useSelector((state: any) => state);
@@ -51,14 +52,14 @@ const HomeContainer = () => {
   return (
     <>
       <DonationBackground />
+      <div className={classes.stone}>
+        <StoneGrid />
+      </div>
       <div className={classes.services}>
         <Services data={data} />
       </div>
       <NumberSection />
-      <div className={classes.stone}>
-        <StoneGrid />
-      </div>
-
+      <Sponsors />
       <Modal title="Login modal" visible={redux.login.modalOpened} onOk={ModalHandler} onCancel={ModalHandler}>
         <Input onChange={handleChange} name="email" placeholder="default size" />
         <Input.Password name="password" onChange={handleChange} placeholder="input password" />
