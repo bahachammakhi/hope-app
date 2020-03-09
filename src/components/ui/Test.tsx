@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { Provider, useSelector, useDispatch } from 'react-redux';
-import { Form, Icon, Input, Button } from 'antd';
+import { Form, Input, Button } from 'antd';
 import useForm from '../../hooks/useForm';
 import useApi from '../../hooks/useApi';
 import { getStartwar as startwars } from '../../requests';
@@ -55,21 +55,10 @@ const Test = ({}: any) => {
       </header>
       <Form layout="inline">
         <Form.Item>
-          <Input
-            name="firstname"
-            prefix={<Icon type="user" style={{ color: 'rgba(0,0,0,.25)' }} />}
-            placeholder="Username"
-            onChange={handleChange}
-          />
+          <Input name="firstname" placeholder="Username" onChange={handleChange} />
         </Form.Item>
         <Form.Item>
-          <Input
-            name="password"
-            prefix={<Icon type="lock" style={{ color: 'rgba(0,0,0,.25)' }} />}
-            type="password"
-            placeholder="Password"
-            onChange={handleChange}
-          />
+          <Input name="password" type="password" placeholder="Password" onChange={handleChange} />
         </Form.Item>
         <Form.Item>
           <Button

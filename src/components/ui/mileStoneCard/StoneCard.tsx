@@ -1,6 +1,6 @@
 import React from 'react';
 import classes from './stonecard.module.scss';
-import { Card, Icon, Avatar, Switch, Skeleton, Progress } from 'antd';
+import { Card, Progress } from 'antd';
 const { Meta } = Card;
 
 interface Props {

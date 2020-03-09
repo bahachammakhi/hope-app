@@ -1,6 +1,6 @@
 import React from 'react';
 import classes from './servicecard.module.scss';
-import { Card, Icon, Avatar, Switch, Skeleton } from 'antd';
+import { Card } from 'antd';
 
 interface Service {
   img: any;
