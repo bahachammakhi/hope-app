@@ -29,5 +29,5 @@ jobs:
         with:
           cmd: build # will run `yarn build` command:
       -name : Done
-      run: echo Done
+       statrun: echo Done
 
