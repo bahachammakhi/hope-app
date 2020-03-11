@@ -1,7 +1,5 @@
 [![Netlify Status](https://api.netlify.com/api/v1/badges/9c4f4320-6e5d-480f-b2cf-3a616bc87e2c/deploy-status)](https://app.netlify.com/sites/hopeapp/deploys)
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app)+ some changes.
-
 ## Stack
 
 React ofc<br />
@@ -9,11 +7,6 @@ Typescript Based project <br />
 Ant design as React UI library<br />
 Redux for state managment<br />
 Middlewares : Saga,Redux logger<br />
-
-## Exemple
-
-Check Test.tsx on components/ui/Test  
-If you have time you can build a doc for this template !
 
 ## Available Scripts
 
