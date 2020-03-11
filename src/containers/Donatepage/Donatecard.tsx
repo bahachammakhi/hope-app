@@ -10,7 +10,7 @@ const Donateconatainer= ()=> {
     return(
     <div className={classes.card}>
         <Row  align="middle" justify="center" gutter={[8, 8]} >
-    <Col flex="10%" className={classes.img}  ><img src={image}  style={{width:"140px",height:"140px"}}/></Col>
+    <Col flex="10%"className={classes.img}  ><img src={image}  style={{width:"140px",height:"140px"}}/></Col>
     <Col flex="80%">  <Title level={3} style={{color:"#A5B3CB"}}>Osmo Makes Math and Literacy a Game</Title> 
    
     <Text>Help me give my students headphones in order for them to be successful and to stay focused when working on tasks on their laptop.
