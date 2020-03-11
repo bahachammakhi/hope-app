@@ -26,7 +26,7 @@ const persistConfig = {
   key: 'root',
   storage,
   transforms: [ImmutablePersistenceTransform],
-  blacklist: ['login', 'loginRequest'],
+  blacklist: ['login', 'loginRequest', 'contact'],
   whiteList: [],
 };
 // Middle weares
