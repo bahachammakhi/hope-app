@@ -3,5 +3,14 @@ export interface LoginRequestData {
   email: string;
   password: string;
 }
+export interface SignRequestData {
+  name: string;
+  email: string;
+  password: string;
+  passwordConfirm: string;
+  role: string;
+  photo?: any;
+}
 export const getStartwar = (): Promise<Response<any>> => axiosGet('todos/1');
 export const loginRequest = (data: LoginRequestData) => axiosPost('api/v1/users/login', { data });
+export const signupRequest = (data: SignRequestData) => axiosPost('api/v1/users/signup', { data });

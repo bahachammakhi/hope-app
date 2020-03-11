@@ -61,12 +61,13 @@ const useForm = ({ handleSubmitCallback, validateCallback, initialValues }: any)
       setSuccess(false);
     }
   };
-
+  const handleReset = () => setForm({});
   return {
     handleChange,
     handleBlur,
     handleSubmit,
     setForm,
+    handleReset,
     form,
     errors,
     touched,

@@ -1,21 +1,37 @@
 import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { Layout, Menu, Breadcrumb } from 'antd';
+import { Menu, message } from 'antd';
 import classes from './header.module.scss';
-import logo from '../../../../assets/logo.png';
 import loginActions from '../../../../redux/login/login';
-const { Header, Content, Footer } = Layout;
-
+import loginActionsRequests from '../../../../redux/login/loginRequest';
+import LoginForm from '../../../../components/ui/loginform/LoginForm';
+import Signup from '../../../../components/ui/signupform/Signup';
 interface Props {
   menu: string[];
 }
 const HeaderHome = ({ menu }: Props) => {
   const dispatch = useDispatch();
+  const redux = useSelector((state: any) => state.loginRequest);
   const menusItems = menu.map((element, index) => {
+    if (element === 'login' && redux && redux.data && redux.data.token) element = 'logout';
+    if (element === 'signup' && redux && redux.data && redux.data.token) return <></>;
     return (
       <Menu.Item
         onClick={() => {
-          if (element === 'login') dispatch(loginActions.modalHandler());
+          switch (element) {
+            case 'login': {
+              dispatch(loginActions.modalHandler({ name: 'login' }));
+              break;
+            }
+            case 'logout': {
+              dispatch(loginActionsRequests.logout());
+              message.warning(`Login the next time you gonna donate !`);
+              break;
+            }
+            case 'signup': {
+              dispatch(loginActions.modalHandler({ name: 'signup' }));
+            }
+          }
         }}
         className={classes.navmenuitem}
         key={index}
@@ -39,6 +55,11 @@ const HeaderHome = ({ menu }: Props) => {
       >
         {menusItems}
       </Menu>
+      <h1 className={classes.name}>
+        {redux && redux.data && redux.data.data && redux.data.data.user && redux.data.data.user.name}
+      </h1>
+      <LoginForm />
+      <Signup />
     </>
   );
 };

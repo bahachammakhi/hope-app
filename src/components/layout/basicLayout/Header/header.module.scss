@@ -31,5 +31,12 @@
 }
 .menu {
   position: absolute;
-  right: 10vw;
+  right: 20vw;
+}
+.name {
+  position: absolute;
+  right: 3vw;
+}
+.name::first-letter {
+  text-transform: capitalize;
 }

@@ -31,6 +31,8 @@ export interface LoginState {
   fetching: boolean;
   data: Data | null;
   error: string;
+  loaded: boolean;
+  name: string;
 }
 
 export interface ReduxState {
