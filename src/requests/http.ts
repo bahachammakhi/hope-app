@@ -1,7 +1,9 @@
 import axios, { AxiosResponse } from 'axios';
 
 // here you can change your api baseurl
-const BaseURL = process.env.REACT_APP_API_URL || 'http://localhost:8000/';
+const BaseURL = process.env.REACT_APP_API_URL || 'https://hopeigc-api.herokuapp.com/';
+//https://hopeigc-api.herokuapp.com/
+//http://localhost:8000/
 //https://jsonplaceholder.typicode.com/
 // your token
 export let authorizationBearer: string | null = null;
@@ -60,7 +62,11 @@ function axiosRequest<T, P>(
   });
 }
 /* ------ Request POST ------ */
-export function axiosPost<T, P extends object>(url: string, params?: P, timeout = null): Promise<Response<T>> {
+export function axiosPost<T, P extends object>(
+  url: string,
+  params?: P,
+  timeout = null
+): Promise<Response<T>> {
   let p: any = {
     sendToken: true,
     data: {},
@@ -101,7 +107,11 @@ export function axiosPut<T, P extends object>(url: string, params?: P, timeout =
 }
 
 /* ------ Request PATCH ------ */
-export function axiosPatch<T, P extends object>(url: string, params?: P, timeout = null): Promise<Response<T>> {
+export function axiosPatch<T, P extends object>(
+  url: string,
+  params?: P,
+  timeout = null
+): Promise<Response<T>> {
   let p: any = { sendToken: true, data: {}, headers: {} };
   if (params) {
     p = { ...p, ...params };
@@ -137,7 +147,11 @@ export function axiosGet<T, P extends object>(url: string, params?: P, timeout =
 }
 
 /* ------ Request DELETE ------ */
-export function axiosDelete<T, P extends object>(url: string, params?: P, timeout = null): Promise<Response<T>> {
+export function axiosDelete<T, P extends object>(
+  url: string,
+  params?: P,
+  timeout = null
+): Promise<Response<T>> {
   let p: any = { sendToken: true, headers: {}, ...params };
   if (params) {
     p = { ...p, ...params };
