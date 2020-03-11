@@ -1,6 +1,7 @@
 import React from 'react';
 import { Row, Col } from 'antd';
 import StoneCard from '../mileStoneCard/StoneCard';
+import classes from './stonegrid.module.scss';
 
 const dataArray = [
   {
@@ -41,12 +42,12 @@ interface Data {
 const StoneGrid = ({ data }: Props) => {
   const StoneElemnts = dataArray.map(el => {
     return (
-      <Col span={6}>
+      <Col span={6} offset={2}>
         <StoneCard {...el} />
       </Col>
     );
   });
-  return <Row>{StoneElemnts}</Row>;
+  return <Row className={classes.grid}>{StoneElemnts}</Row>;
 };
 
 export default StoneGrid;

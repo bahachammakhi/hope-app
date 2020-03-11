@@ -1,8 +1,9 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import classes from './footer.module.scss';
-import { Row, Col, Input, Button } from 'antd';
+import { Row, Col, Input, Button, message } from 'antd';
 import useForm from '../../../../hooks/useForm';
-
+import { useSelector, useDispatch } from 'react-redux';
+import contactActions from '../../../../redux/contact/contactRequest';
 //This component still needs Form validations
 
 const { TextArea } = Input;
@@ -10,9 +11,9 @@ const RightSide = () => (
   <div>
     <h1>Get In Touch with us</h1>
     <p>
-      Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's
-      standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a
-      type specimen book. It has survived not only five centuries, but also the
+      Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the
+      industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and
+      scrambled it to make a type specimen book. It has survived not only five centuries, but also the
     </p>
     <Row>
       <i className={`fab fa-instagram icons ${classes.icons}`}></i>
@@ -32,27 +33,66 @@ const RightSide = () => (
 );
 
 const LeftSide = () => {
+  const redux = useSelector((state: any) => state);
+  const dispatch = useDispatch();
   const initialValues = {
     name: '',
     email: '',
     message: '',
   };
-  const { handleChange, handleSubmit, handleBlur, setForm, form, errors, success, submitting } = useForm({
+  const {
+    handleChange,
+    handleReset,
+    handleSubmit,
+    handleBlur,
+    setForm,
+    form,
+    errors,
+    success,
+    submitting,
+  } = useForm({
     initialValues,
   });
+  useEffect(() => {
+    if (redux.contact.loaded) {
+      handleReset();
+      message.success(`Done! !!`);
+    }
+  }, [redux.contact.loaded]);
+
   //cons
   return (
     <div>
-      <Input className={classes.formElement} placeholder="Name" name="name" onChange={handleChange} />
-      <Input className={classes.formElement} placeholder="Email" name="email" onChange={handleChange} />
+      <Input
+        value={form.name}
+        className={classes.formElement}
+        placeholder="Name"
+        name="name"
+        onChange={handleChange}
+      />
+      <Input
+        value={form.email}
+        className={classes.formElement}
+        placeholder="Email"
+        name="email"
+        onChange={handleChange}
+      />
       <TextArea
         className={classes.formElement}
         placeholder="Message"
+        value={form.message}
         autoSize={{ minRows: 4, maxRows: 6 }}
         name="message"
         onChange={handleChange}
       />
-      <Button onClick={e => console.log(form)} className={classes.button}>
+      <h4 style={{ padding: '10px', color: 'red' }}> {redux.contact.error}</h4>
+      <Button
+        onClick={e => {
+          console.log(form);
+          dispatch(contactActions.contactRequest({ form }));
+        }}
+        className={classes.button}
+      >
         Contact us
       </Button>
     </div>
