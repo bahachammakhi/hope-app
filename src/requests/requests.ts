@@ -16,6 +16,7 @@ export interface createContact {
   email: string;
   message: string;
 }
+export const getDonations = ():Promise<Response<any>> => axiosGet('api/v1/donations');
 export const getStartwar = (): Promise<Response<any>> => axiosGet('todos/1');
 export const loginRequest = (data: LoginRequestData) => axiosPost('api/v1/users/login', { data });
 export const signupRequest = (data: SignRequestData) => axiosPost('api/v1/users/signup', { data });

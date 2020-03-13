@@ -6,7 +6,9 @@ import { Typography } from 'antd';
 const { Title } = Typography;
 const { Text } = Typography;
 
-const Donateconatainer= ()=> {
+const Donateconatainer= (props:any)=> {
+    console.log(props);
+    
     return(
     <div className={classes.card}>
         <Row  align="middle" justify="center" gutter={[8, 8]} >

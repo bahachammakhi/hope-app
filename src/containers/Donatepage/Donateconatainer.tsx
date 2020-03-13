@@ -1,5 +1,7 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
 import Donatecard from "./Donatecard"
+import donationActions from '../../redux/Donations/donations';
 import { Row, Col } from 'antd';
 import { Checkbox } from 'antd';
 import classes from './Donateconatainer.module.scss';
@@ -8,7 +10,24 @@ import { Typography } from 'antd';
 
 const { Title } = Typography;
 const { Text } = Typography;
+
+
 const Donateconatainer= ()=> {
+    const dispatch = useDispatch();
+    const redux = useSelector((state: any) => state);
+ console.log("5")
+ console.log(redux.donation.data.data.donations)
+ console.log("5")
+
+    useEffect(()=>{
+     dispatch(donationActions.donationRequest())    
+    },[])
+
+    const Items = redux.donation.data.data.donations.map((item:any) =>
+   <Donatecard props={item}/>
+  );
+
+
     return(
     <div style={{margin:"30px"}}>
         
@@ -34,11 +53,7 @@ const Donateconatainer= ()=> {
             <Button ghost size="large" style={{margin:"10px"}}> Support classrooms monthly</Button>
 
      </div>
-    <Donatecard />
-    <Donatecard />
-    <Donatecard />
-    <Donatecard />
- 
+{Items} 
     </Col>
    
   
