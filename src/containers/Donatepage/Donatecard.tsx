@@ -5,27 +5,43 @@ import { Row, Col } from 'antd';
 import { Typography } from 'antd';
 const { Title } = Typography;
 const { Text } = Typography;
+ interface LabeledValue {
+   image?:string[];
+   startDates?:string[];
+   _id?:string;
+   name?:string;
+   contact?:string;
+   description?:string;
+   author?:string;
+   id?:string;
+   }
 
-const Donateconatainer= (props:any)=> {
-    console.log(props);
+  interface donation {
+  data?:LabeledValue;
+   }
+  
+const Donateconatainer= ({data}:donation )=> {
+if(data && data.name){ 
+  console.log(data.name);
+}
+ 
+  
     
+      
     return(
     <div className={classes.card}>
-        <Row  align="middle" justify="center" gutter={[8, 8]} >
-    <Col flex="10%"className={classes.img}  ><img src={image}  style={{width:"140px",height:"140px"}}/></Col>
-    <Col flex="80%">  <Title level={3} style={{color:"#A5B3CB"}}>Osmo Makes Math and Literacy a Game</Title> 
+            <Row  align="middle" justify="center" gutter={[8, 8]} >
+    <Col flex="10%" className={classes.img}  ><img src={image}  style={{width:"140px",height:"140px"}}/></Col>
+    <Col flex="80%">  <Title level={3} style={{color:"#A5B3CB"}}>{data?.name}</Title> 
    
-    <Text>Help me give my students headphones in order for them to be successful and to stay focused when working on tasks on their laptop.
-    Help me give my students headphones in order for them to be successful and to stay focused when working on tasks on their laptop.
+    <Text>{data?.description}
     </Text>
-    <Title level={4} style={{margin:"0px"}} >Ant Design</Title>
+    <Title level={4} style={{margin:"0px"}} >{data?.author}</Title>
     <Text>
-    Fulks Run Elementary School•Fulks Run, VA
+    {data?.contact}
     </Text>
 </Col>
   </Row>
-  
-  
   </div>
 
     )

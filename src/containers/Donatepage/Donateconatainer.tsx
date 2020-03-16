@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import Donatecard from "./Donatecard"
 import donationActions from '../../redux/Donations/donations';
@@ -13,18 +13,20 @@ const { Text } = Typography;
 
 
 const Donateconatainer= ()=> {
+    const [data,setData] = useState([])
     const dispatch = useDispatch();
     const redux = useSelector((state: any) => state);
- console.log("5")
- console.log(redux.donation.data.data.donations)
- console.log("5")
-
+ 
     useEffect(()=>{
+        
      dispatch(donationActions.donationRequest())    
+     setData(redux.donation.data.data.donations)
     },[])
 
-    const Items = redux.donation.data.data.donations.map((item:any) =>
-   <Donatecard props={item}/>
+
+    
+    const Items = data.map((item:any) =>
+   <Donatecard data={item} />
   );
 
 
