@@ -10,7 +10,7 @@ const RootContainer = () => {
   return (
     <Switch>
       <LayoutHome exact path="/" component={HomeContainer} />
-      <LayoutHome path="/donates" component={Donateconatainer} />
+      <LayoutHome path="/dontations" component={Donateconatainer} />
       <LayoutHome path="/stones" component={StoneContainer} />
     </Switch>
   );
