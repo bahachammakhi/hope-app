@@ -42,7 +42,14 @@ interface Data {
 const StoneGrid = ({ data }: Props) => {
   const StoneElemnts = dataArray.map(el => {
     return (
-      <Col span={6} offset={2}>
+      <Col
+        xs={{ span: 22, offset: 2 }}
+        sm={{ span: 22, offset: 2 }}
+        md={{ span: 8, offset: 1 }}
+        lg={{ span: 6, offset: 2 }}
+        xl={{ span: 6, offset: 2 }}
+        xxl={{ span: 6, offset: 2 }}
+      >
         <StoneCard {...el} />
       </Col>
     );

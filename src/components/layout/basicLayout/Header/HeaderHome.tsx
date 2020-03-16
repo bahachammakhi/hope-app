@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { Menu, message } from 'antd';
+import { useHistory } from 'react-router-dom';
+import { Menu, message, Dropdown } from 'antd';
+import { DownOutlined, MenuUnfoldOutlined } from '@ant-design/icons';
 import classes from './header.module.scss';
 import loginActions from '../../../../redux/login/login';
 import loginActionsRequests from '../../../../redux/login/loginRequest';
@@ -10,6 +12,7 @@ interface Props {
   menu: string[];
 }
 const HeaderHome = ({ menu }: Props) => {
+  const history = useHistory();
   const dispatch = useDispatch();
   const redux = useSelector((state: any) => state.loginRequest);
   const menusItems = menu.map((element, index) => {
@@ -31,6 +34,8 @@ const HeaderHome = ({ menu }: Props) => {
             case 'signup': {
               dispatch(loginActions.modalHandler({ name: 'signup' }));
             }
+            default:
+              history.push(element === 'home' ? '/' : `/${element}`);
           }
         }}
         className={classes.navmenuitem}
@@ -53,7 +58,20 @@ const HeaderHome = ({ menu }: Props) => {
         defaultSelectedKeys={['0']}
         style={{ lineHeight: '64px' }}
       >
-        {menusItems}
+        {window.innerWidth > 768 ? (
+          menusItems
+        ) : (
+          <Dropdown
+            overlay={<Menu>{menusItems}</Menu>}
+            placement="bottomCenter"
+            overlayClassName={classes.dropdown}
+          >
+            <MenuUnfoldOutlined
+              style={{ fontSize: '1.5rem', color: '#193f85' }}
+              onClick={e => e.preventDefault()}
+            />
+          </Dropdown>
+        )}
       </Menu>
       <h1 className={classes.name}>
         {redux && redux.data && redux.data.data && redux.data.data.user && redux.data.data.user.name}
