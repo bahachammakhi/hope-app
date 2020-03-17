@@ -102,10 +102,27 @@ const FooterHome = () => {
   return (
     <>
       <Row className={classes.wrapper}>
-        <Col span={6} offset={6}>
+        <Col
+          span={6}
+          offset={6}
+          xs={{ span: 24, offset: 0 }}
+          sm={{ span: 24, offset: 0 }}
+          md={{ span: 10, offset: 2 }}
+          lg={{ span: 6, offset: 6 }}
+          xl={{ span: 6, offset: 6 }}
+          xxl={{ span: 6, offset: 6 }}
+        >
           <RightSide />
         </Col>
-        <Col className={classes.form} span={8} offset={2}>
+        <Col
+          className={classes.form}
+          xs={{ span: 24, offset: 0 }}
+          sm={{ span: 24, offset: 0 }}
+          md={{ span: 12, offset: 0 }}
+          lg={{ span: 8, offset: 2 }}
+          xl={{ span: 8, offset: 2 }}
+          xxl={{ span: 8, offset: 2 }}
+        >
           <LeftSide />
         </Col>
       </Row>

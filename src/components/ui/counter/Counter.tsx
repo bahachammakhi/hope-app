@@ -17,7 +17,14 @@ interface Data {
 const Conter = ({ data }: Props) => {
   const countdown = data.map((el: Data) => {
     return (
-      <Col span={3} offset={2}>
+      <Col
+        xs={{ span: 6, offset: 2 }}
+        sm={{ span: 6, offset: 2 }}
+        md={{ span: 5, offset: 1 }}
+        lg={{ span: 6, offset: 2 }}
+        xl={{ span: 6, offset: 2 }}
+        xxl={{ span: 6, offset: 2 }}
+      >
         <TrackVisibility once className={classes.element}>
           {({ isVisible }) =>
             isVisible && <CountUp className={classes.number} end={el.number} duration={10} delay={0.2} />

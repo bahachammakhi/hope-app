@@ -6,7 +6,7 @@ import { Layout, Menu, Breadcrumb } from 'antd';
 import HeaderHome from './Header/HeaderHome';
 import FooterHome from './Footer/FooterHome';
 const { Header, Content, Footer } = Layout;
-const menus = ['home', 'about', 'sevices', 'signup', 'login'];
+const menus = ['home', 'dontations', 'stones', 'signup', 'login'];
 interface Props extends RouteProps {
   sidebar?: boolean;
 }

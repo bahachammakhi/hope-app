@@ -11,6 +11,15 @@
   background-color: #e3ebee !important;
   transition: background-color 0.5s;
   box-shadow: 1px 1px 1px black;
+  @media screen and (max-width: 1100px) {
+    height: 100% !important;
+    margin-top: 2vh !important;
+  }
+  @media screen and (max-width: 680px) {
+    width: 80vw !important;
+    height: 100% !important;
+    margin-top: 2vh !important;
+  }
 }
 .card:hover {
   background-image: linear-gradient(

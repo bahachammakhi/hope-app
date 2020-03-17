@@ -12,7 +12,15 @@ interface Service {
 }
 const Services = ({ data }: Props) => {
   const card = data.map((el, index) => (
-    <Col span={7} offset={index === 0 ? 1 : 0}>
+    <Col
+      xs={{ span: 22, offset: 2 }}
+      sm={{ span: 22, offset: 2 }}
+      md={{ span: 6, offset: 1 }}
+      lg={{ span: 6, offset: 2 }}
+      xl={{ span: 6, offset: 2 }}
+      xxl={{ span: 6, offset: 2 }}
+      className={classes.card}
+    >
       <ServiceCard {...el} />
     </Col>
   ));
