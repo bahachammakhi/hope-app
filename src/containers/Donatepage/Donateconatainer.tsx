@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import Donatecard from "./Donatecard"
+import Donatemodale from "./Donatemodale"
 import donationActions from '../../redux/Donations/donations';
 import { Row, Col } from 'antd';
 import { Checkbox } from 'antd';
@@ -23,7 +24,6 @@ const Donateconatainer= ()=> {
      setData(redux.donation.data.data.donations)
     },[])
 
-
     
     const Items = data.map((item:any) =>
    <Donatecard data={item} />
@@ -32,7 +32,7 @@ const Donateconatainer= ()=> {
 
     return(
     <div style={{margin:"30px"}}>
-        
+     
         <Row>
         <Col  flex="1 1 150px">
      <Title level={3}>ZTEEZTE</Title>
@@ -62,7 +62,7 @@ const Donateconatainer= ()=> {
   
   
     </Row>
-
+    <Donatemodale />
     </div>
     )
 }

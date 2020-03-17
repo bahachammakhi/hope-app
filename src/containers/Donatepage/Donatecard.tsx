@@ -21,13 +21,7 @@ const { Text } = Typography;
    }
   
 const Donateconatainer= ({data}:donation )=> {
-if(data && data.name){ 
-  console.log(data.name);
-}
- 
-  
     
-      
     return(
     <div className={classes.card}>
             <Row  align="middle" justify="center" gutter={[8, 8]} >
