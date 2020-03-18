@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { useHistory } from 'react-router-dom';
-import { Menu, message, Dropdown,Modal } from 'antd';
+import { Menu, message, Dropdown, Modal } from 'antd';
 import { DownOutlined, MenuUnfoldOutlined } from '@ant-design/icons';
 import classes from './header.module.scss';
 import loginActions from '../../../../redux/login/login';
@@ -16,8 +16,15 @@ const HeaderHome = ({ menu }: Props) => {
   const dispatch = useDispatch();
   const redux = useSelector((state: any) => state);
   const menusItems = menu.map((element, index) => {
-    if (element === 'login' && redux.loginRequest && redux.loginRequest.data && redux.loginRequest.data.token) element = 'logout';
-    if (element === 'signup' && redux.loginRequest && redux.loginRequest.data && redux.loginRequest.data.token) return <></>;
+    if (element === 'login' && redux.loginRequest && redux.loginRequest.data && redux.loginRequest.data.token)
+      element = 'logout';
+    if (
+      element === 'signup' &&
+      redux.loginRequest &&
+      redux.loginRequest.data &&
+      redux.loginRequest.data.token
+    )
+      return <></>;
     return (
       <Menu.Item
         onClick={() => {
@@ -77,18 +84,22 @@ const HeaderHome = ({ menu }: Props) => {
         )}
       </Menu>
       <h1 className={classes.name}>
-        {redux.loginRequest && redux.loginRequest.data && redux.loginRequest.data.data && redux.loginRequest.data.data.user && redux.loginRequest.data.data.user.name}
+        {redux.loginRequest &&
+          redux.loginRequest.data &&
+          redux.loginRequest.data.data &&
+          redux.loginRequest.data.data.user &&
+          redux.loginRequest.data.data.user.name}
       </h1>
-<Modal 
-bodyStyle={{ padding: '50px' }}
-destroyOnClose
-footer={null}
-visible={redux.login.modalOpened}
-onOk={ModalHandler}
-onCancel={ModalHandler}
->
-      <LoginForm />
-</Modal>
+      <Modal
+        bodyStyle={{ padding: '50px' }}
+        destroyOnClose
+        footer={null}
+        visible={redux.login.modalOpened}
+        onOk={ModalHandler}
+        onCancel={ModalHandler}
+      >
+        <LoginForm />
+      </Modal>
       <Signup />
     </>
   );
