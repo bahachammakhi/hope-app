@@ -1,5 +1,6 @@
 .card {
   width: 20vw !important;
+  box-shadow: 0 5px 8px 0 rgba(139, 139, 139, 0.781) !important;
   @media screen and (max-width: 1100px) {
     width: 30vw !important;
     margin-top: 2vh !important;
@@ -14,11 +15,14 @@
 }
 .img {
   width: 100%;
+  height: 100%;
 }
 .cover {
   position: relative !important;
   text-decoration: inherit !important;
   transition: all 0.2s ease-in-out !important;
+  max-height: 200px !important;
+  overflow: hidden !important;
 }
 .card:hover {
   box-shadow: 0 8px 16px 0 rgba(139, 139, 139, 0.781) !important;
@@ -29,7 +33,7 @@
   position: absolute !important;
   bottom: 3px !important;
   text-shadow: 2px 2px 4px #000000;
-  left: 10px;
+  left: 20%;
   font-weight: bold;
   line-height: 1.2;
   font-size: 1.25rem;
@@ -38,7 +42,7 @@
   color: white;
 }
 .money {
-  margin-left: 25%;
+  text-align: center;
 }
 .progress {
 }
