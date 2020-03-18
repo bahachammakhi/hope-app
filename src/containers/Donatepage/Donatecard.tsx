@@ -6,6 +6,15 @@ import { Typography } from 'antd';
 const { Title } = Typography;
 const { Text } = Typography;
 const { Paragraph } = Typography;
+interface author {
+  role: string;
+_id: string;
+name: string;
+email: string;
+__v: Number;
+}
+
+
 interface LabeledValue {
   image?:string[];
   startDates?:string[];
@@ -13,7 +22,7 @@ interface LabeledValue {
   name?: string;
   contact?: string;
   description?: string;
-  author?:any;
+  author?: author;
   imageCover?:string;
   id?: string;
 }
@@ -37,7 +46,7 @@ const Donatecard = ({ data }:donation) => {
           </Title>
           <Text>  <Paragraph ellipsis={{ rows: 5, expandable: false }}> {data?.description} </Paragraph></Text>
           <Title level={4} style={{ margin: '0px' }}>
-            {data?.author.name}
+            {data?.author?.name}
           </Title>
           <Text>{data?.contact}</Text>
         </Col>

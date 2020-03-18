@@ -26,7 +26,7 @@ const Donateconatainer = () => {
   }, []);
 
   const Items =
-    data.length > 0 ? data.map((item,key):any => <Donatecard data={item} key={key} />) : <h1>No Donations yet</h1>;
+    data.length > 0 ? data.map((item,key):any => <Donatecard data={item} key={key} />) : <Title>No Donations yet...</Title>;
 
   
     
