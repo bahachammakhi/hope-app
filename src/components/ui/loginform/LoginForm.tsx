@@ -14,9 +14,6 @@ const LoginForm = () => {
     password: '',
   };
   const { handleChange, form, handleReset } = useForm({ initialValues });
-  const ModalHandler = () => {
-    dispatch(loginActions.modalHandler({ name: 'login' }));
-  };
   useEffect(() => {
     if (redux.loginRequest.loaded && redux.loginRequest.name === 'login') {
       handleReset();
@@ -25,15 +22,7 @@ const LoginForm = () => {
     }
   }, [redux.loginRequest.loaded, redux.loginRequest.name === 'login']);
   return (
-    <Modal
-      bodyStyle={{ padding: '50px' }}
-      destroyOnClose
-      footer={null}
-      className={classes.modal}
-      visible={redux.login.modalOpened}
-      onOk={ModalHandler}
-      onCancel={ModalHandler}
-    >
+    <div>
       <Input className={classes.input} onChange={handleChange} name="email" placeholder="email" />
       <Input.Password
         name="password"
@@ -52,7 +41,7 @@ const LoginForm = () => {
       >
         Login
       </Button>
-    </Modal>
+    </div>
   );
 };
 
