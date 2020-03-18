@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
+import Donatemodale from './Donatemodale';
 import Donatecard from './Donatecard';
 import donationActions from '../../redux/Donations/donations';
 import { Row, Col } from 'antd';
@@ -7,7 +8,6 @@ import { Checkbox } from 'antd';
 import classes from './Donateconatainer.module.scss';
 import { Button } from 'antd';
 import { Typography } from 'antd';
-
 const { Title } = Typography;
 const { Text } = Typography;
 
@@ -18,15 +18,18 @@ const Donateconatainer = () => {
 
   useEffect(() => {
     dispatch(donationActions.donationRequest());
-    console.log('donations', redux.donation);
+ 
     if (redux.donation.data && redux.donation.loaded) {
       setData(redux.donation.data.data.donations);
     }
+    
   }, []);
 
   const Items =
-    data.length > 0 ? data.map((item: any) => <Donatecard data={item} />) : <h1>No Donations yet</h1>;
+    data.length > 0 ? data.map((item,key):any => <Donatecard data={item} key={key} />) : <h1>No Donations yet</h1>;
 
+  
+    
   return (
     <div style={{ margin: '30px' }}>
       <Row>
@@ -49,14 +52,12 @@ const Donateconatainer = () => {
               Sign up to automatically donate once a month, then handpick the projects you want to support.
             </Text>
             <br />
-            <Button ghost size="large" style={{ margin: '10px' }}>
-              {' '}
-              Support classrooms monthly
-            </Button>
+            <Donatemodale />
           </div>
           {Items}
         </Col>
       </Row>
+      <Donatemodale />
     </div>
   );
 };
