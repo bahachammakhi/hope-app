@@ -42,7 +42,7 @@ const Donatecard = ({ data }:donation) => {
     <div className={classes.card}>
       <Row align="middle" justify="center" gutter={[12, 12]}>
         <Col flex="10%" className={classes.img}>
-          <img src={data?.imageCover?.secure_url} style={{ width: '150px', height: '150px' }} />
+          <img src={data?.imageCover?.secure_url} style={{ width: '160px', height: '160px' }} />
         </Col>
         <Col flex="80%">
           {' '}
