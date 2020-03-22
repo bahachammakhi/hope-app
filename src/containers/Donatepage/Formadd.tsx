@@ -49,6 +49,7 @@ const Formadd = () => {
       formData.append('visitor', 'false');
       formData.append('images', values.images.file.originFileObj);
       dispatch(createDonations.createDonationsRequest({ formData }));
+      
       message.success('upload successfully.');
     }
 
