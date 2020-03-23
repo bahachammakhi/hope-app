@@ -16,18 +16,20 @@ const Formadd = () => {
   };
 
   const redux = useSelector((state: any) => state);
-  console.log(redux.loginRequest.data.data.user._id, 'redux');
-
   const dispatch = useDispatch();
   var formData = new FormData();
   const onFinish = (values: any) => {
+   
+    
     const reqtype = ['image/jpg', 'image/gif', 'image/jpeg'];
     const reqsize = '20000';
-    var file = values.images.fileList;
+    var files= values.images ? values.images.fileList : [{}] ;
     var filecoverimage = values.imageCover.fileList;
 
     const valdfile = (file: any, reqtype: string[], reqsize: string) => {
       let res = true;
+    
+      if((JSON.stringify(file)!==JSON.stringify([{}]))){
       file.map((element: any) => {
         if (element.size < reqsize) {
           message.error('check size of files');
@@ -38,16 +40,17 @@ const Formadd = () => {
           res = false;
         }
       });
+    }
       return res;
     };
-    if (valdfile(file, reqtype, reqsize) && valdfile(filecoverimage, reqtype, reqsize)) {
+    if (valdfile(files, reqtype, reqsize) && valdfile(filecoverimage, reqtype, reqsize)) {
       formData.append('name', values.name);
       formData.append('description', values.description);
       formData.append('contact', values.contact);
       formData.append('imageCover', values.imageCover.file.originFileObj);
       formData.append('author', redux.loginRequest.data.data.user._id);
       formData.append('visitor', 'false');
-      formData.append('images', values.images.file.originFileObj);
+      formData.append('images',values.images ? values.images.file.originFileObj : values.imageCover.file.originFileObj );
       dispatch(createDonations.createDonationsRequest({ formData }));
       
       message.success('upload successfully.');
@@ -95,6 +98,7 @@ const Formadd = () => {
         >
           <TextArea placeholder="description" allowClear />
         </Form.Item>
+
 
         <Form.Item
           label="contact"
