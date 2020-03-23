@@ -43,7 +43,7 @@ const Formadd = () => {
         </Form.Item>
 
         <Form.Item label="image" name="image">
-          <Upload>
+          <Upload> git checkout <feature_branch>
             <Button>
               <UploadOutlined /> Click to Upload
             </Button>
