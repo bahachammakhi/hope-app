@@ -18,18 +18,19 @@ const Donateconatainer = () => {
 
   useEffect(() => {
     dispatch(donationActions.donationRequest());
- 
+
     if (redux.donation.data && redux.donation.loaded) {
       setData(redux.donation.data.data.donations);
     }
-    
   }, []);
 
   const Items =
-    data.length > 0 ? data.map((item,key):any => <Donatecard data={item} key={key} />) : <Title>No Donations yet...</Title>;
+    data.length > 0 ? (
+      data.map((item, key): any => <Donatecard data={item} key={key} />)
+    ) : (
+      <Title>No Donations yet...</Title>
+    );
 
-  
-    
   return (
     <div style={{ margin: '30px' }}>
       <Row>

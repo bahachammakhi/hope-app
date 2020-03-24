@@ -3,44 +3,66 @@ import { Row, Col } from 'antd';
 import StoneCard from '../mileStoneCard/StoneCard';
 import classes from './stonegrid.module.scss';
 
-const dataArray = [
-  {
-    moneyleft: 100,
-    neededMoney: 280,
-    src: 'https://www.donorschoose.org/teacher/photo/u7137717?size=sm&t=1582735068741',
-    title: 'Please provide some food for this poor kids we need your help heree !',
-    description:
-      'Help me give my students an exciting day on an educational working farm. They would greatly benefit from this worthwhile hands-on experience on a country farm.',
-  },
-  {
-    moneyleft: 100,
-    neededMoney: 280,
-    src: 'https://www.donorschoose.org/teacher/photo/u7137717?size=sm&t=1582735068741',
-    title: 'Please provide some food for this poor kids we need your help heree !',
-    description:
-      'Help me give my students an exciting day on an educational working farm. They would greatly benefit from this worthwhile hands-on experience on a country farm.',
-  },
-  {
-    moneyleft: 100,
-    neededMoney: 280,
-    src: 'https://www.donorschoose.org/teacher/photo/u7137717?size=sm&t=1582735068741',
-    title: 'Please provide some food for this poor kids we need your help heree !',
-    description:
-      'Help me give my students an exciting day on an educational working farm. They would greatly benefit from this worthwhile hands-on experience on a country farm.',
-  },
-];
+// const dataArray = [
+//   {
+//     moneyleft: 100,
+//     neededMoney: 280,
+//     src: 'https://www.donorschoose.org/teacher/photo/u7137717?size=sm&t=1582735068741',
+//     title: 'Please provide some food for this poor kids we need your help heree !',
+//     description:
+//       'Help me give my students an exciting day on an educational working farm. They would greatly benefit from this worthwhile hands-on experience on a country farm.',
+//   },
+//   {
+//     moneyleft: 100,
+//     neededMoney: 280,
+//     src: 'https://www.donorschoose.org/teacher/photo/u7137717?size=sm&t=1582735068741',
+//     title: 'Please provide some food for this poor kids we need your help heree !',
+//     description:
+//       'Help me give my students an exciting day on an educational working farm. They would greatly benefit from this worthwhile hands-on experience on a country farm.',
+//   },
+//   {
+//     moneyleft: 100,
+//     neededMoney: 280,
+//     src: 'https://www.donorschoose.org/teacher/photo/u7137717?size=sm&t=1582735068741',
+//     title: 'Please provide some food for this poor kids we need your help heree !',
+//     description:
+//       'Help me give my students an exciting day on an educational working farm. They would greatly benefit from this worthwhile hands-on experience on a country farm.',
+//   },
+// ];
 interface Props {
-  data?: Data[];
+  data?: stone[];
 }
-interface Data {
-  src: string;
+interface stone {
+  startDate: Date;
+  name: string;
+  _id: string;
+  author: {
+    role: string;
+    _id?: string;
+    name: string;
+    email: string;
+    __v?: number;
+  };
+  contact: string;
   description: string;
-  moneyleft: number;
-  title: string;
-  neededMoney: number;
+  but: number;
+  currentValue: number;
+  imageCover: {
+    secure_url: string;
+    public_id: string;
+  };
+  images: [
+    {
+      _id?: string;
+      secure_url: string;
+      public_id: string;
+    }
+  ];
+  slug: string;
+  id: string;
 }
 const StoneGrid = ({ data }: Props) => {
-  const StoneElemnts = dataArray.map(el => {
+  const StoneElemnts = data?.map(el => {
     return (
       <Col
         xs={{ span: 22, offset: 2 }}
