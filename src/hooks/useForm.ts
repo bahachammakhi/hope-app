@@ -1,7 +1,14 @@
 import { useState } from 'react';
 
+interface Props {
+  handleSubmitCallback?: void;
+  validateCallback?: void;
+  initialValues?: any;
+}
+
 const useForm = ({ handleSubmitCallback, validateCallback, initialValues }: any) => {
-  const [form, setForm] = useState(initialValues); //for holding initial form data
+  const [form, setForm] = useState(initialValues);
+  const [selectform, setSelectform] = useState('fdsf'); //for holding initial form data
   const [errors, setErrors] = useState({}); //for validtion errors
   const [success, setSuccess] = useState(false); //set to true if form was submitted successfully
   const [submitting, setSubmitting] = useState(false); //set to true when first submitting the form to disable the submit button
@@ -21,6 +28,9 @@ const useForm = ({ handleSubmitCallback, validateCallback, initialValues }: any)
     let e = validateCallback();
     setErrors(e);
     return e;
+  };
+  const handleSelect = (value: any) => {
+    setSelectform(value);
   };
   const handleChange = (e: any) => {
     const { name, value } = e.target; //use destructuring ot get name/value from target for ease of use
@@ -68,6 +78,8 @@ const useForm = ({ handleSubmitCallback, validateCallback, initialValues }: any)
     handleSubmit,
     setForm,
     handleReset,
+    handleSelect,
+    selectform,
     form,
     errors,
     touched,
