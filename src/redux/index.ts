@@ -5,7 +5,10 @@ import { reducer as login } from './login/login';
 import { reducer as loginRequest } from './login/loginRequest';
 import { reducer as contact } from './contact/contactRequest';
 import { reducer as createDonations } from './Donations/createDonations';
+import { reducer as createStone } from './Stones/createStones';
+
 export default combineReducers({
+  createStone,
   startup,
   login,
   contact,

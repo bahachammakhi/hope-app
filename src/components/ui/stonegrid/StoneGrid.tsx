@@ -1,6 +1,7 @@
 import React from 'react';
 import { Row, Col } from 'antd';
 import StoneCard from '../mileStoneCard/StoneCard';
+import { useHistory, Link } from 'react-router-dom';
 import classes from './stonegrid.module.scss';
 
 // const dataArray = [
@@ -62,6 +63,7 @@ interface stone {
   id: string;
 }
 const StoneGrid = ({ data }: Props) => {
+  const history = useHistory();
   const StoneElemnts = data?.map(el => {
     return (
       <Col
@@ -71,8 +73,9 @@ const StoneGrid = ({ data }: Props) => {
         lg={{ span: 6, offset: 2 }}
         xl={{ span: 6, offset: 2 }}
         xxl={{ span: 6, offset: 2 }}
+        onClick={() => history.push(`/stones/${el.id}`)}
       >
-        <StoneCard {...el} />
+        <StoneCard {...el} />{' '}
       </Col>
     );
   });

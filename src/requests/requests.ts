@@ -1,4 +1,5 @@
 import { axiosPost, axiosGet, axiosPatch, axiosDelete, Response, axiosPut } from './http';
+import axios from 'axios';
 export interface LoginRequestData {
   email: string;
   password: string;
@@ -22,4 +23,6 @@ export const getStartwar = (): Promise<Response<any>> => axiosGet('todos/1');
 export const loginRequest = (data: LoginRequestData) => axiosPost('api/v1/users/login', { data });
 export const signupRequest = (data: SignRequestData) => axiosPost('api/v1/users/signup', { data });
 export const createContact = (data: createContact) => axiosPost('api/v1/contacts', { data });
-export const postDonations = (data: any) => axiosPost('api/v1/donations', { data });
+export const postDonations = (data: FormData) => axiosPost('api/v1/donations', { data });
+export const postStones = (data: FormData) => axiosPost('api/v1/stones', { data });
+export const getStone = (id: string) => axiosGet(`/api/v1/stones/${id}`);
