@@ -26,7 +26,7 @@ const persistConfig = {
   key: 'root',
   storage,
   transforms: [ImmutablePersistenceTransform],
-  blacklist: ['login','contact'],
+  blacklist: ['login', 'contact', 'createStone'],
   whiteList: [],
 };
 // Middle weares

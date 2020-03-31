@@ -6,7 +6,6 @@ import donationActions from '../../redux/Donations/donations';
 import { Row, Col } from 'antd';
 import { Checkbox } from 'antd';
 import classes from './Donateconatainer.module.scss';
-import { Button } from 'antd';
 import { Typography } from 'antd';
 const { Title } = Typography;
 const { Text } = Typography;
