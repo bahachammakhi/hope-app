@@ -23,3 +23,5 @@ export const loginRequest = (data: LoginRequestData) => axiosPost('api/v1/users/
 export const signupRequest = (data: SignRequestData) => axiosPost('api/v1/users/signup', { data });
 export const createContact = (data: createContact) => axiosPost('api/v1/contacts', { data });
 export const postDonations = (data: any) => axiosPost('api/v1/donations', { data });
+export const delDonation = (data: any) => axiosDelete('api/v1/donations', { data });
+

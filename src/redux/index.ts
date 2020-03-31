@@ -5,6 +5,7 @@ import { reducer as login } from './login/login';
 import { reducer as loginRequest } from './login/loginRequest';
 import { reducer as contact } from './contact/contactRequest';
 import { reducer as createDonations } from './Donations/createDonations';
+import { reducer as deleteDonation } from './Donations/deleteDonation';
 export default combineReducers({
   startup,
   login,
@@ -12,4 +13,5 @@ export default combineReducers({
   loginRequest,
   donation,
   createDonations,
+  deleteDonation,
 });

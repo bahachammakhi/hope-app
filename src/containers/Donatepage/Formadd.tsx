@@ -90,7 +90,7 @@ const Formadd = () => {
     fileList = fileList.slice(-5);
     fileList = fileList.map(file => {
       if (file.response) {
-        // Component will show file.url as link
+    
         file.url = file.response.url;
       }
       return file;
