@@ -61,7 +61,7 @@ const Donatecard = ({ data }:donation) => {
       </Row>
       <DeleteDonation data={data}/>
       <Link to={{pathname:`/Donateinfo/${data?._id}`}} >
-    info
+    more info
       </Link>
     </div>
   );
