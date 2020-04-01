@@ -1,40 +1,62 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Typography , Divider } from 'antd';
 import { Carousel } from 'antd';
 import { Row, Col } from 'antd';
+import { Avatar } from 'antd';
+import {useParams} from "react-router-dom";
+import useApi from '../../hooks/useApi';
+import { getDonation } from '../../requests';
 const { Title, Paragraph, Text } = Typography;
-
-
 const Donateinfo = () =>{
+  let { id } = useParams();
+console.log(id);
+
+const { ...calls } = useApi({ getDonation });
+const [data, setData] = useState<any>();
+useEffect(() => {
+  calls.getDonation.call(id);
+}, []);
+
+useEffect(() => {
+  if (calls.getDonation.success) setData(calls.getDonation.data.data.donation);
+}, [calls.getDonation.success]);
+
+
+const carousel = (
+  <Carousel autoplay >
+    {data?.images.map((el:any)=> {
+      console.log("el",el);
+      
+      return (
+        <div>
+          <img src={el.secure_url} style={{width: "600px", height:"400px"}} alt="ImagesCarousel" />
+        </div>
+      );
+    })}
+  </Carousel>
+);
+
+console.log('data', data);
     return(
       <>
       <Row gutter={[16, 16]}>
       <Col  sm={10}>
-      <Carousel autoplay style={{background: "#364d79"}} >
-    <div>
-      <h3>1</h3>
-    </div>
-    <div>
-      <h3>2</h3>
-    </div>
-    <div>
-      <h3>3</h3>
-    </div>
-    <div>
-      <h3>4</h3>
-    </div>
-  </Carousel>
+      {carousel}
   </Col>
       <Col sm={14}>
     <Typography>
   <Paragraph>
-      <Title>Introductio Introductio Introductio Introductio</Title>
-      In the process of internal desktop applications development, many different design specs and
-      implementations would be involved, which might cause designers and developers difficulties and
-      duplication and reduce the efficiency of development.
+      <Title>{data?.name}</Title>
+     {data?.description}
     </Paragraph>
-    <Text>
-      hakim maaouia
+    
+ 
+    <Paragraph>
+    <Text strong style={{fontSize:20}}> Contact: </Text><Text style={{fontSize:17}}>{data?.contact}</Text>
+    </Paragraph>
+    < Divider/>
+    <Avatar style={{margin:"0 15px 0 0"}}>H</Avatar>  <Text style={{fontSize:20}}>
+      {data?.author?.name}
     </Text>
       </Typography>
       </Col>

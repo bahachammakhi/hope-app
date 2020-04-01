@@ -39,6 +39,7 @@ interface imageCover {
 
 const Donatecard = ({ data }:donation) => {
 
+
   
   return (
     <div className={classes.card} >
@@ -59,7 +60,7 @@ const Donatecard = ({ data }:donation) => {
         </Col>
       </Row>
       <DeleteDonation data={data}/>
-      <Link to="/Donateinfo">
+      <Link to={{pathname:`/Donateinfo/${data?._id}`}} >
     info
       </Link>
     </div>

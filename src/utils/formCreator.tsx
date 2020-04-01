@@ -45,6 +45,7 @@ const formCreator: FC<Props | any> = ({
             prefix={elementConfig.icon ? elementConfig.icon : <></>}
             onChange={onChange}
           />
+          {elementConfig.required && value === '' ? <span>Field required !</span> : <></>}
         </Form.Item>
       );
     case 'select':
@@ -118,3 +119,52 @@ const formCreator: FC<Props | any> = ({
 };
 
 export default formCreator;
+
+//  const forms = [
+//    {
+//      elementType: 'input',
+//      elementConfig: {
+//        label: 'name',
+//        name: 'name',
+//        size: 'default',
+//        placeholder: 'name',
+//        required: true,
+//      },
+//    },
+//    {
+//      elementType: 'input',
+//      elementConfig: {
+//        label: 'Contact',
+//        name: 'contact',
+//        placeholder: 'test',
+//      },
+//    },
+//    {
+//      elementType: 'input',
+//      elementConfig: {
+//        label: 'Description',
+//        name: 'description',
+//        placeholder: 'description',
+//      },
+//    },
+//    {
+//      elementType: 'input',
+//      elementConfig: {
+//        label: 'But',
+//        name: 'but',
+//        placeholder: 'butfgfdg',
+//      },
+//    },
+//    {
+//      elementType: 'select',
+//      elementConfig: {
+//        label: 'Select',
+//        name: 'select',
+//        placeholder: 'test',
+//        options: [
+//          { name: 'Choose1', value: '2' },
+//          { name: 'Choose3', value: '3' },
+//        ],
+//      },
+//    },
+//  ];
