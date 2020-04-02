@@ -8,11 +8,14 @@ const { Title } = Typography;
 const { Text } = Typography;
 const Donatemodale = () => {
   const [visible, setvisible] = useState(false);
-  const [test, settest] = useState(true);
   const dispatch = useDispatch();
   const redux = useSelector((state: any) => state);
-  console.log(redux.loginRequest.data, '1515151');
-
+  useEffect(() => {
+    
+    if(redux.createDonations.loaded){
+      setvisible(false)
+    }
+   },[redux.createDonations]);
   return (
     <div>
       <Button ghost size="large" style={{ margin: '10px' }} onClick={() => setvisible(true)}>

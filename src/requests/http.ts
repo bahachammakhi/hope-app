@@ -1,7 +1,7 @@
 import axios, { AxiosResponse } from 'axios';
 
 // here you can change your api baseurl
-const BaseURL = process.env.REACT_APP_API_URL || 'http://localhost:8000/';
+const BaseURL = process.env.REACT_APP_API_URL || 'https://hopeigc-api.herokuapp.com/';
 //https://hopeigc-api.herokuapp.com/
 //http://localhost:8000/
 //https://jsonplaceholder.typicode.com/
