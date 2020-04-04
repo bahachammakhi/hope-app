@@ -43,6 +43,7 @@ const Formadd = () => {
       }
       return res;
     };
+    console.log(values);
     
     if (valdfile(files, reqtype, reqsize) && valdfile(filecoverimage, reqtype, reqsize)) {
       formData.append('name', values.name);
@@ -53,8 +54,16 @@ const Formadd = () => {
       formData.append('visitor', 'false');
       formData.append(
         'images',
-        values.images ? values.images.file.originFileObj : values.imageCover.file.originFileObj
+        values.imageCover.file.originFileObj
       );
+      if(values.images){
+      values.images.fileList.forEach((element:any) => {
+        formData.append(
+          'images',
+        element.originFileObj 
+        );
+      });
+    }
       dispatch(createDonations.createDonationsRequest({ formData }));
       if (redux.createDonations.loaded) {
         message.success('upload successfully.');
