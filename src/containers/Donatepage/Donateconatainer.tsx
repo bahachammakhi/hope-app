@@ -25,7 +25,9 @@ const Donateconatainer = () => {
 
   const Items =
     data.length > 0 ? (
-      data.map((item, key): any => <Donatecard data={item} id_user={redux?.loginRequest?.data?.data?.user?._id}key={key} />)
+      data.map((item, key): any => (
+        <Donatecard data={item} id_user={redux?.loginRequest?.data?.data?.user?._id} key={key} />
+      ))
     ) : (
       <Title>No Donations yet...</Title>
     );
@@ -57,7 +59,6 @@ const Donateconatainer = () => {
           {Items}
         </Col>
       </Row>
-    
     </div>
   );
 };

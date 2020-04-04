@@ -13,7 +13,6 @@ const { Title, Paragraph, Text } = Typography;
 const Donateinfo = () => {
   const redux = useSelector((state: any) => state);
 
-  
   let { id } = useParams();
   console.log(id);
 
@@ -39,7 +38,7 @@ const Donateinfo = () => {
     </Carousel>
   );
 
-  console.log("rererer",redux?.loginRequest?.data?.data?.user?._id,"....",data?.author?._id);
+  console.log('rererer', redux?.loginRequest?.data?.data?.user?._id, '....', data?.author?._id);
   return (
     <div style={{ margin: '30px' }}>
       <Row gutter={[16, 16]}>
@@ -63,7 +62,7 @@ const Donateinfo = () => {
           </Typography>
         </Col>
       </Row>
-      {redux?.loginRequest?.data?.data?.user?._id===data?.author?._id && <DeleteDonation data={data}/>}
+      {redux?.loginRequest?.data?.data?.user?._id === data?.author?._id && <DeleteDonation data={data} />}
     </div>
   );
 };

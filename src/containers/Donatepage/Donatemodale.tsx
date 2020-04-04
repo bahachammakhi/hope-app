@@ -11,11 +11,10 @@ const Donatemodale = () => {
   const dispatch = useDispatch();
   const redux = useSelector((state: any) => state);
   useEffect(() => {
-    
-    if(redux.createDonations.loaded){
-      setvisible(false)
+    if (redux.createDonations.loaded) {
+      setvisible(false);
     }
-   },[redux.createDonations]);
+  }, [redux.createDonations]);
   return (
     <div>
       <Button ghost size="large" style={{ margin: '10px' }} onClick={() => setvisible(true)}>

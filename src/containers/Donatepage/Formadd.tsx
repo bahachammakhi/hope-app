@@ -44,7 +44,7 @@ const Formadd = () => {
       return res;
     };
     console.log(values);
-    
+
     if (valdfile(files, reqtype, reqsize) && valdfile(filecoverimage, reqtype, reqsize)) {
       formData.append('name', values.name);
       formData.append('description', values.description);
@@ -52,18 +52,12 @@ const Formadd = () => {
       formData.append('imageCover', values.imageCover.file.originFileObj);
       formData.append('author', redux.loginRequest.data.data.user._id);
       formData.append('visitor', 'false');
-      formData.append(
-        'images',
-        values.imageCover.file.originFileObj
-      );
-      if(values.images){
-      values.images.fileList.forEach((element:any) => {
-        formData.append(
-          'images',
-        element.originFileObj 
-        );
-      });
-    }
+      formData.append('images', values.imageCover.file.originFileObj);
+      if (values.images) {
+        values.images.fileList.forEach((element: any) => {
+          formData.append('images', element.originFileObj);
+        });
+      }
       dispatch(createDonations.createDonationsRequest({ formData }));
       if (redux.createDonations.loaded) {
         message.success('upload successfully.');
@@ -86,7 +80,7 @@ const Formadd = () => {
   const handleChangeimagecover = (info: any) => {
     let fileList = [...info.fileList];
     fileList = fileList.slice(-1);
-    fileList = fileList.map(file => {
+    fileList = fileList.map((file) => {
       if (file.response) {
         // Component will show file.url as link
         file.url = file.response.url;
@@ -98,9 +92,8 @@ const Formadd = () => {
   const handleChangeimages = (info: any) => {
     let fileList = [...info.fileList];
     fileList = fileList.slice(-5);
-    fileList = fileList.map(file => {
+    fileList = fileList.map((file) => {
       if (file.response) {
-    
         file.url = file.response.url;
       }
       return file;
