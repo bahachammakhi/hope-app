@@ -8,15 +8,15 @@ function* createStone(action: AnyAction) {
   try {
     const response: Response = yield call(postStones, action.formData);
     if (response.code >= 200 && response.code < 400) {
-      yield put(createStonesActions.createStonesSuccess({ data: response.data }));
-    } else {
-      yield put(
-        createStonesActions.createStonesFailure({
-          error: response.message,
-          data: null,
-          fetching: false,
-        })
-      );
+     yield put(createStonesActions.createStonesSuccess({ data: response.data }));
+     } else {
+     yield put(
+     createStonesActions.createStonesFailure({
+       error: response.message,
+       data: null,
+        fetching: false,
+      })
+     );
     }
   } catch (e) {
     console.log(e);
@@ -25,5 +25,5 @@ function* createStone(action: AnyAction) {
 }
 
 export default function*() {
-  yield takeLatest(createStonesActions.createStonesRequest, createStone);
+  yield takeLatest(createStonesTypes.createStonesRequest, createStone);
 }
