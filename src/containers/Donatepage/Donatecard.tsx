@@ -5,7 +5,7 @@ import {Link} from 'react-router-dom';
 import { Row, Col } from 'antd';
 import { Typography } from 'antd';
 import { Badge } from 'antd';
-import { NotificationOutlined } from '@ant-design/icons';
+import {CrownOutlined} from '@ant-design/icons';
 const { Title } = Typography;
 const { Text } = Typography;
 const { Paragraph } = Typography;
@@ -39,22 +39,23 @@ interface imageCover {
   public_id:  string;
 }
 
-const Donatecard = ({ data }:donation) => {
-
+const Donatecard = ({ data ,id_user}:any) => {
 
   
   return (
     <div className={classes.card} >
       <Link to={{pathname:`/Donateinfo/${data?._id}`}} >
       <Row align="middle" justify="center" gutter={[12, 12]}>
-        <Col flex="10%" className={classes.img}>
-          <img src={data?.imageCover?.secure_url} style={{ width: '160px', height: '160px' }} />
+        <Col flex="10%">
+          <img src={data?.imageCover?.secure_url} className={classes.img} />
         </Col>
         <Col flex="80%">
           {' '}
           <Title level={3} style={{ color: '#A5B3CB' }}>
             {data?.name}
+            {data?.author?._id===id_user &&  <CrownOutlined   style={{fontSize:"25px",color:"#096dd9",marginLeft:"10px"}}/> }
           </Title>
+          
           <Text>  <Paragraph ellipsis={{ rows: 5, expandable: false }}> {data?.description} </Paragraph></Text>
           <Title level={4} style={{ margin: '0px' }}>
             {data?.author?.name}
@@ -63,9 +64,6 @@ const Donatecard = ({ data }:donation) => {
         </Col>
       </Row>
       </Link>
-      <Badge count={100} dot>
-      <NotificationOutlined />
-    </Badge>
     </div>
   );
 };

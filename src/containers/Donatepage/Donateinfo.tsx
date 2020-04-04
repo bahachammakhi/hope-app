@@ -7,9 +7,13 @@ import { useParams } from 'react-router-dom';
 import useApi from '../../hooks/useApi';
 import { getDonation } from '../../requests';
 import DeleteDonation from './DeleteDonation';
+import { useSelector, useDispatch } from 'react-redux';
 
 const { Title, Paragraph, Text } = Typography;
 const Donateinfo = () => {
+  const redux = useSelector((state: any) => state);
+
+  
   let { id } = useParams();
   console.log(id);
 
@@ -34,8 +38,8 @@ const Donateinfo = () => {
       })}
     </Carousel>
   );
-  console.log(data);
-  
+
+  console.log("rererer",redux?.loginRequest?.data?.data?.user?._id,"....",data?.author?._id);
   return (
     <div style={{ margin: '30px' }}>
       <Row gutter={[16, 16]}>
@@ -59,7 +63,7 @@ const Donateinfo = () => {
           </Typography>
         </Col>
       </Row>
-      <DeleteDonation data={data}/>
+      {redux?.loginRequest?.data?.data?.user?._id===data?.author?._id && <DeleteDonation data={data}/>}
     </div>
   );
 };
