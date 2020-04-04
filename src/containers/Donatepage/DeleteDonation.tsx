@@ -2,9 +2,13 @@ import React, { useEffect } from 'react';
 import { Modal, Button } from 'antd';
 import deleteDonationAction from '../../redux/Donations/deleteDonation';
 import axios from 'axios';
+import { useHistory } from "react-router-dom";
+import {DeleteOutlined} from '@ant-design/icons';
+
 const { confirm } = Modal;
 
 const DeleteDonation = (props?: any) => {
+  let history = useHistory();
   function showDeleteConfirm() {
     let x = localStorage.getItem('token');
     console.log('token', props.data._id);
@@ -27,19 +31,21 @@ const DeleteDonation = (props?: any) => {
 
           .then(function(response) {
             console.log(response);
+            history.push("/dontations");
           })
           .catch(function(error) {
             console.log('payload', props.data.author._id);
           });
+          
       },
       onCancel() {
-        console.log('Cancel');
+       
       },
     });
   }
   return (
     <div>
-      <Button onClick={showDeleteConfirm} type="dashed">
+      <Button onClick={showDeleteConfirm}   icon={<DeleteOutlined />} danger>
         Delete
       </Button>
     </div>

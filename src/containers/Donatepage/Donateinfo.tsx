@@ -6,6 +6,8 @@ import { Avatar } from 'antd';
 import { useParams } from 'react-router-dom';
 import useApi from '../../hooks/useApi';
 import { getDonation } from '../../requests';
+import DeleteDonation from './DeleteDonation';
+
 const { Title, Paragraph, Text } = Typography;
 const Donateinfo = () => {
   let { id } = useParams();
@@ -26,7 +28,7 @@ const Donateinfo = () => {
       {data?.images.map((el: any) => {
         return (
           <div>
-            <img src={el.secure_url} style={{ width: '600px', height: '400px' }} alt="ImagesCarousel" />
+            <img src={el.secure_url} style={{ width: '100%', height: '400px' }} alt="ImagesCarousel" />
           </div>
         );
       })}
@@ -35,10 +37,10 @@ const Donateinfo = () => {
   console.log(data);
   
   return (
-    <>
+    <div style={{ margin: '30px' }}>
       <Row gutter={[16, 16]}>
-        <Col sm={10}>{carousel}</Col>
-        <Col sm={14}>
+        <Col md={10}>{carousel}</Col>
+        <Col md={14}>
           <Typography>
             <Paragraph>
               <Title>{data?.name}</Title>
@@ -57,7 +59,8 @@ const Donateinfo = () => {
           </Typography>
         </Col>
       </Row>
-    </>
+      <DeleteDonation data={data}/>
+    </div>
   );
 };
 export default Donateinfo;

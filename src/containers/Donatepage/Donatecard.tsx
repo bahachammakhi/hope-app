@@ -4,6 +4,8 @@ import DeleteDonation from './DeleteDonation';
 import {Link} from 'react-router-dom';
 import { Row, Col } from 'antd';
 import { Typography } from 'antd';
+import { Badge } from 'antd';
+import { NotificationOutlined } from '@ant-design/icons';
 const { Title } = Typography;
 const { Text } = Typography;
 const { Paragraph } = Typography;
@@ -43,6 +45,7 @@ const Donatecard = ({ data }:donation) => {
   
   return (
     <div className={classes.card} >
+      <Link to={{pathname:`/Donateinfo/${data?._id}`}} >
       <Row align="middle" justify="center" gutter={[12, 12]}>
         <Col flex="10%" className={classes.img}>
           <img src={data?.imageCover?.secure_url} style={{ width: '160px', height: '160px' }} />
@@ -59,10 +62,10 @@ const Donatecard = ({ data }:donation) => {
           <Text>{data?.contact}</Text>
         </Col>
       </Row>
-      <DeleteDonation data={data}/>
-      <Link to={{pathname:`/Donateinfo/${data?._id}`}} >
-    more info
       </Link>
+      <Badge count={100} dot>
+      <NotificationOutlined />
+    </Badge>
     </div>
   );
 };

@@ -57,7 +57,7 @@ const Donateconatainer = () => {
           {Items}
         </Col>
       </Row>
-      <Donatemodale />
+    
     </div>
   );
 };
