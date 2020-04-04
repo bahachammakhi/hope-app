@@ -1,14 +1,10 @@
 import React, { useEffect } from 'react';
 import { Modal, Button } from 'antd';
-import { useSelector, useDispatch } from 'react-redux';
 import deleteDonationAction from '../../redux/Donations/deleteDonation';
 import axios from 'axios';
 const { confirm } = Modal;
 
 const DeleteDonation = (props?: any) => {
-  const redux = useSelector((state: any) => state);
-  const dispatch = useDispatch();
-
   function showDeleteConfirm() {
     let x = localStorage.getItem('token');
     console.log('token', props.data._id);

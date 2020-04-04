@@ -43,7 +43,7 @@ const Formadd = () => {
       }
       return res;
     };
-    let Array=[values.imageCover.file.originFileObj,values.imageCover.file.originFileObj]
+    
     if (valdfile(files, reqtype, reqsize) && valdfile(filecoverimage, reqtype, reqsize)) {
       formData.append('name', values.name);
       formData.append('description', values.description);

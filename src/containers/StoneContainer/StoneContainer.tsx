@@ -103,7 +103,10 @@ export const StoneContainer = () => {
       dispatch(createStoneActions.createStonesRequest({ formData }));
     }
   };
+
+  
   return (
+  
     <div>
       <Button onClick={() => setvisible(!visible)} style={{ marginLeft: '10%' }}>
         Add Your Stone

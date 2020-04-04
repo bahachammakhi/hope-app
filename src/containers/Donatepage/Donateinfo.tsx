@@ -32,8 +32,6 @@ const Donateinfo = () => {
       })}
     </Carousel>
   );
-
-  console.log('data', data);
   return (
     <>
       <Row gutter={[16, 16]}>
